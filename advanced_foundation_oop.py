@@ -97,10 +97,14 @@ class Car5:
     def __init__(self,weight):
         self.weight=weight
 
+    #add @property so that made weight to become property
     @property
     def weight(self):
         return self.__weight
 
+    #when setting attribute add @property.setter
+    #tell class that when the source want to setting the property
+    #need to call this method
     @weight.setter
     def weight(self,value):
         if value<=0:
@@ -109,5 +113,5 @@ class Car5:
 
 # Nissan=Car5(100)
 # print(Nissan.weight) #100
-Nissan=Car5(-100)
+# Nissan=Car5(-100)
 #ValueError: Car weight can't be 0 or less
