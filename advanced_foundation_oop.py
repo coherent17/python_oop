@@ -54,8 +54,55 @@ class Car2:
 mazda=Car2("blue",4)
 toyota=Car2("red",6)
 print("mazda original door:", mazda.door)
-#mazda original door: 4
 print("toyota original door:", toyota.door)
+#mazda original door: 4
 #toyota original door: 4
 
+#the attribute defined outside the constructor 
+#can be change in all object
+#ex:
+Car2.door=8
+print("mazda new door:", mazda.door)
+print("toyota new door:", toyota.door)
+# mazda new door: 8
+# toyota new door: 8
 
+#三 property (屬性)
+class Car3:
+    def __init__(self,weight):
+        self.weight=weight
+
+Tida=Car3(-200)
+#however the weight can not be less than 0
+#how can we fixed?
+
+#First way:
+class Car4:
+    def __init__(self,weight):
+        self.set_weight(weight)
+
+    def get_weight(self):
+        return self.__weight
+
+    def set_weight(self,value):
+        if value<=0:
+            raise ValueError("Car weight can't be 0 or less")
+        self.__weight=value
+
+tida=Car4(-200)
+#ValueError: Car weight can't be 0 or less
+#non-pythonic
+
+class Car5:
+    def __init__(self,weight):
+        self.weight=weight
+
+    @property
+    def weight(self):
+        return self.__weight
+
+    @weight.setter
+    def weight(self,value):
+        if value<=0:
+            raise ValueError("Car weight can't be 0 or less")
+        self.__weight=value
