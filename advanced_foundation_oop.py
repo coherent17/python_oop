@@ -89,7 +89,7 @@ class Car4:
             raise ValueError("Car weight can't be 0 or less")
         self.__weight=value
 
-tida=Car4(-200)
+#tida=Car4(-200)
 #ValueError: Car weight can't be 0 or less
 #non-pythonic
 
@@ -106,3 +106,8 @@ class Car5:
         if value<=0:
             raise ValueError("Car weight can't be 0 or less")
         self.__weight=value
+
+# Nissan=Car5(100)
+# print(Nissan.weight) #100
+Nissan=Car5(-100)
+#ValueError: Car weight can't be 0 or less
